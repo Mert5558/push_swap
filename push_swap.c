@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 11:22:28 by merdal            #+#    #+#             */
-/*   Updated: 2024/02/19 12:51:26 by merdal           ###   ########.fr       */
+/*   Updated: 2024/02/20 13:14:13 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,18 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack *a;
+	t_stack	*a;
 
 	if (argc < 2)
 		ft_error();
 	if (argc == 2)
-		a = ft_process_quotation(**argv);
+		a = ft_process_quotation(argv);
 	else
-		a = ft_process_normal(argc, **argv);
+		a = ft_process_normal(argc, argv);
+	if (ft_checkfordup(a) || a == NULL)
+	{
+		ft_free(&a);
+		ft_error();
+	}
+	
 }
