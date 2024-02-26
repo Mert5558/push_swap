@@ -6,7 +6,7 @@
 #    By: merdal <merdal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 11:52:48 by merdal            #+#    #+#              #
-#    Updated: 2024/02/20 13:56:36 by merdal           ###   ########.fr        #
+#    Updated: 2024/02/26 12:35:39 by merdal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,12 @@ SRCS =	push_swap.c \
 		ft_error.c \
 		add_nodes.c \
 		ft_free.c \
-		ft_checkfordup.c
+		ft_checkfordup.c \
+		ft_checkifsorted.c \
+		commands_a.c \
+		commands_b.c \
+		commands.c \
+		sorting.c
 
 OBJS =	$(SRCS:.c=.o)
 
