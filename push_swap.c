@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 11:22:28 by merdal            #+#    #+#             */
-/*   Updated: 2024/02/20 13:14:13 by merdal           ###   ########.fr       */
+/*   Updated: 2024/02/27 16:29:57 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int	main(int argc, char **argv)
 		ft_free(&a);
 		ft_error();
 	}
-	
+	ft_sort(&a);
+	return (0);
 }
