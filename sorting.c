@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:27:59 by merdal            #+#    #+#             */
-/*   Updated: 2024/02/28 14:22:56 by merdal           ###   ########.fr       */
+/*   Updated: 2024/02/29 14:48:43 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,46 +36,82 @@ int	ft_find_smallest(t_stack **a)
 	return (min_index);
 }
 
+long ft_find_second_smallest(t_stack *a, int smallest)
+{
+    int second_smallest = INT_MAX;
 
-void	ft_to_top(t_stack **a, t_stack **b)
-{	
-	int	smallest_index;
+    while (a != NULL)
+    {
+        if (a->num < second_smallest && a->num > smallest)
+        {
+            second_smallest = a->num;
+        }
+        a = a->next;
+    }
+    return (second_smallest);
+}
 
-	smallest_index = ft_find_smallest(a);
-	if (smallest_index < ft_lstsize(*a) / 2)
+int	ft_calc_moves(t_stack **a, int index)
+{
+	int	moves;
+
+	moves = 0;
+	if (index < ft_lstsize(*a) / 2)
 	{
-		while (ft_find_smallest(a) != 0)
+		while (index != 0)
 		{
-			ft_ra(a, 0);
-			smallest_index--;
+			index--;
+			moves++;
 		}
 	}
 	else
 	{
-		while (smallest_index < ft_lstsize(*a))
+		while (index <= ft_lstsize(*a))
 		{
-			ft_rra(a, 0);
-			smallest_index++;
+			index++;
+			moves++;
 		}
 	}
-	ft_pb(b, a, 0);
+	return (moves);
+}
+
+void	ft_compare_moves(t_stack **a)
+{
+	int	moves_for_1;
+	int	moves_for_2;
+	int	index_smallest;
+	int	index_second_smallest;
+
+	index_smallest = ft_find_smallest(a);
+	index_second_smallest = ft_find_second_smallest(*a, index_smallest);
+
+	moves_for_1 = ft_calc_moves(a, index_smallest);
+	moves_for_2 = ft_calc_moves(a, index_second_smallest);
+
+	if (moves_for_1 - moves_for_2 < 0)
+	{
+		while (moves_for_1 != 0)
+		{
+			ft_ra(a, 0);
+			moves_for_1--;
+		}
+	}
+	else
+	{
+		while (moves_for_2 != 0)
+		{
+			ft_rra(a, 0);
+			moves_for_2--;
+		}
+	}
 }
 
 void	ft_sort(t_stack **a)
 {
 	t_stack	*b;
 	int	i;
-	int	size_a;
 
 	b = NULL;
 	i = 0;
-	size_a = ft_lstsize(*a);
-	while (ft_lstsize(*a) != 0)
-	{
-		ft_to_top(a, &b);
-	}
-	while (ft_lstsize(b) != 0)
-	{
-		ft_pa(a, &b, 0);
-	}
+	ft_compare_moves(a);
 }
