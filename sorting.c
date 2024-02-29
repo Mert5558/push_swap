@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:27:59 by merdal            #+#    #+#             */
-/*   Updated: 2024/02/29 14:48:43 by merdal           ###   ########.fr       */
+/*   Updated: 2024/02/29 14:55:49 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,8 @@ void	ft_compare_moves(t_stack **a)
 
 	index_smallest = ft_find_smallest(a);
 	index_second_smallest = ft_find_second_smallest(*a, index_smallest);
-
 	moves_for_1 = ft_calc_moves(a, index_smallest);
 	moves_for_2 = ft_calc_moves(a, index_second_smallest);
-
 	if (moves_for_1 - moves_for_2 < 0)
 	{
 		while (moves_for_1 != 0)
