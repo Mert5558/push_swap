@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:27:59 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/01 10:49:27 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/01 15:39:52 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 int	ft_find_smallest(t_stack **a)
 {
     if (!a || !*a)
-    {
-        return (1);
-    }
+    	ft_error();
     int min_index = 0;
     long smallest_value = (*a)->num;
     int index = 0;
@@ -36,19 +34,31 @@ int	ft_find_smallest(t_stack **a)
 	return (min_index);
 }
 
-long ft_find_second_smallest(t_stack *a, int smallest)
+int ft_find_second_smallest(t_stack **a)
 {
-    int second_smallest = INT_MAX;
+    if (!a || !*a)
+        ft_error();
 
-    while (a != NULL)
+    int smallest_index = ft_find_smallest(a);
+    int second_smallest_index = -1;
+    int index = 0;
+    t_stack *current = *a;
+    long smallest_value = INT_MAX;
+    long second_smallest_value = INT_MAX;
+
+    while (current != NULL)
     {
-        if (a->num < second_smallest && a->num > smallest)
-        {
-            second_smallest = a->num;
+        if (index == smallest_index) {
+            smallest_value = current->num;
         }
-        a = a->next;
+        else if (current->num < second_smallest_value) {
+            second_smallest_value = current->num;
+            second_smallest_index = index;
+        }
+        current = current->next;
+        index++;
     }
-    return (second_smallest);
+    return (second_smallest_index);
 }
 
 int	ft_calc_moves(t_stack **a, int index)
@@ -66,13 +76,35 @@ int	ft_calc_moves(t_stack **a, int index)
 	}
 	else
 	{
-		while (index <= ft_lstsize(*a))
+		while (index < ft_lstsize(*a))
 		{
 			index++;
 			moves++;
 		}
 	}
 	return (moves);
+}
+
+void	ft_calc_which_command(t_stack **a, int	index, int moves)
+{
+	int	i = 0;
+	
+	if (index < ft_lstsize(*a) / 2)
+	{
+		while (i < moves)
+		{
+			ft_ra(a, 0);
+			i++;
+		}
+	}
+	else
+	{
+		while (i < moves)
+		{
+			ft_rra(a, 0);
+			i++;
+		}
+	}
 }
 
 void	ft_compare_moves(t_stack **a)
@@ -83,24 +115,16 @@ void	ft_compare_moves(t_stack **a)
 	int	index_second_smallest;
 
 	index_smallest = ft_find_smallest(a);
-	index_second_smallest = ft_find_second_smallest(*a, index_smallest);
+	index_second_smallest = ft_find_second_smallest(a);
 	moves_for_1 = ft_calc_moves(a, index_smallest);
 	moves_for_2 = ft_calc_moves(a, index_second_smallest);
-	if (moves_for_1 - moves_for_2 < 0)
+	if (moves_for_1 < moves_for_2)
 	{
-		while (moves_for_1 != 0)
-		{
-			ft_ra(a, 0);
-			moves_for_1--;
-		}
+		ft_calc_which_command(a, index_smallest, moves_for_1);
 	}
 	else
 	{
-		while (moves_for_2 != 0)
-		{
-			ft_rra(a, 0);
-			moves_for_2--;
-		}
+		ft_calc_which_command(a, index_second_smallest, moves_for_2);
 	}
 }
 
@@ -125,12 +149,14 @@ void	ft_check_push(t_stack **a, t_stack **b)
 	int	top_a;
 	int	top_b;
 
+	if (!a || !*a)
+		return ;
+	
 	top_a = ft_num_top(a);
-	if (b)
+	top_b = INT_MAX;
+	if (b && *b)
 		top_b = ft_num_top(b);
-	else
-		top_b = - 1;
-	if (top_a - top_b > 0)
+	if (!b || ! *b || top_a < top_b)
 		ft_pb(a, b, 0);
 	else
 	{
@@ -141,9 +167,9 @@ void	ft_check_push(t_stack **a, t_stack **b)
 
 void	ft_sort(t_stack **a)
 {
-	t_stack	*b;
+	t_stack	**b;
 
 	b = NULL;
 	ft_compare_moves(a);
-	ft_check_push(a, &b);
+	ft_check_push(a, b);
 }
