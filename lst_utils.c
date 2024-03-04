@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   lst_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/13 11:22:28 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/01 10:58:07 by merdal           ###   ########.fr       */
+/*   Created: 2024/02/27 16:46:29 by merdal            #+#    #+#             */
+/*   Updated: 2024/02/27 16:48:39 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+t_stack	*ft_lstlast(t_stack *lst)
 {
-	t_stack	*a;
-
-	if (argc < 2)
-		ft_error();
-	if (argc == 2)
-		a = ft_process_quotation(argv);
-	else
-		a = ft_process_normal(argc, argv);
-	if (ft_checkfordup(a) || a == NULL)
+	while (lst)
 	{
-		ft_free(&a);
-		ft_error();
+		if (!lst->next)
+			return (lst);
+		lst = lst->next;
 	}
-	ft_sort(&a);
-	return (0);
+	return (lst);
+}
+
+int	ft_lstsize(t_stack *lst)
+{
+	int	size;
+
+	size = 0;
+	if (!lst)
+		return (0);
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
 }

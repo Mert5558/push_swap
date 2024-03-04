@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:12:12 by merdal            #+#    #+#             */
-/*   Updated: 2024/02/19 14:30:45 by merdal           ###   ########.fr       */
+/*   Updated: 2024/02/27 16:33:18 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ t_stack	*ft_process_quotation(char **argv)
 
 t_stack	*ft_process_normal(int argc, char **argv)
 {
-	t_stack *a;
+	t_stack	*a;
 	int		i;
 	int		j;
-	
+
 	i = 1;
 	a = NULL;
 	while (i < argc)

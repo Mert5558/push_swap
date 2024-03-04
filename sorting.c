@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:27:59 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/01 15:39:52 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/04 14:10:47 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,43 +125,6 @@ void	ft_compare_moves(t_stack **a)
 	else
 	{
 		ft_calc_which_command(a, index_second_smallest, moves_for_2);
-	}
-}
-
-int	ft_num_top(t_stack **stack)
-{
-	int	num_top;
-
-	num_top = (*stack)->num;
-	return (num_top);
-}
-
-void	ft_smallest_to_top(t_stack **b)
-{
-	while (ft_find_smallest(b) != 0)
-	{
-		ft_rb(b, 0);
-	}
-}
-
-void	ft_check_push(t_stack **a, t_stack **b)
-{
-	int	top_a;
-	int	top_b;
-
-	if (!a || !*a)
-		return ;
-	
-	top_a = ft_num_top(a);
-	top_b = INT_MAX;
-	if (b && *b)
-		top_b = ft_num_top(b);
-	if (!b || ! *b || top_a < top_b)
-		ft_pb(a, b, 0);
-	else
-	{
-		ft_smallest_to_top(b);
-		ft_pb(a, b, 0);
 	}
 }
 

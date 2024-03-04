@@ -16,11 +16,14 @@ BONUS	= \
 
 BONUS_OBJS	= $(BONUS:.c=.o)
 
-$(NAME)	: $(OBJS)
-		ar rcs $(NAME) $(OBJS)
+$(NAME)	: $(OBJS) $(BONUS_OBJS)
+		ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 $(OBJS)	: %.o : %.c
-		cc -Wall -Werror -Wextra -c $<
+		cc -Wall -Werror -Wextra -c $< -o $@
+
+$(BONUS_OBJS) : %.o : %.c
+		cc -Wall -Werror -Wextra -c $< -o $@
 
 all	: $(NAME)
 
@@ -32,9 +35,5 @@ fclean	: clean
 
 re	: fclean
 	$(MAKE) all
-
-bonus	: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-
 
 .PHONY	: all clean fclean re bonus

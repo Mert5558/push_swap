@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 12:27:17 by merdal            #+#    #+#             */
-/*   Updated: 2024/02/26 12:40:45 by merdal           ###   ########.fr       */
+/*   Updated: 2024/02/26 15:32:56 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	ft_pb(t_stack **b, t_stack **a, int i)
 
 	if ((*a) == NULL)
 		return ;
-	temp = *b;
-	*b = *a;
+	temp = *a;
 	*a = (*a)->next;
-	(*b)->next = temp;;
+	temp->next = *b;
+	*b= temp;
 	if (i == 0)
 		write(1, "pb\n", 3);
 }
