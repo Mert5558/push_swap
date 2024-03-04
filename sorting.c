@@ -6,13 +6,35 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:27:59 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/04 14:10:47 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/04 15:24:40 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_find_smallest(t_stack **a)
+void	ft_make_chunks(t_stack **a)
+{
+	int	stack_len;
+	int	chunks_amout;
+	int	i = 0;
+	int	j = 0;
+	int	**chunks;
+
+	stack_len = ft_lstsize(a);
+	chunks_amout = stack_len / 20;
+	chunks[chunks_amout][20];
+	if (stack_len % 20 != 0)
+		chunks_amout++;
+	while (i < chunks_amout)
+	{
+		while (j < 20)
+		{
+			chunks[i][j] = i * 20 +j;
+		}
+	}
+}
+
+int	ft_find_smallest(t_stack **a) //change
 {
     if (!a || !*a)
     	ft_error();
@@ -34,7 +56,7 @@ int	ft_find_smallest(t_stack **a)
 	return (min_index);
 }
 
-int ft_find_second_smallest(t_stack **a)
+int ft_find_second_smallest(t_stack **a) //change
 {
     if (!a || !*a)
         ft_error();
