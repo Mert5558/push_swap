@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 12:10:36 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/08 16:38:19 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/08 18:03:43 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_scan_top(t_stack **a, int *chunk)
 
 	while (current != NULL)
 	{
-		while (index_chunk <= 20)
+		while (index_chunk < 20)
 		{
 			if (current->num == chunk[index_chunk])
 			{
@@ -51,9 +51,9 @@ int	ft_scan_bottom(t_stack **a, int *chunk)
 	int	index_stack = ft_lstsize(*a) - 1;
 	t_stack *current = ft_get_last_stack(a);
 
-	while (current != *a)
+	while (current != NULL)
 	{
-		while (index_chunk <= 20)
+		while (index_chunk < 20)
 		{
 			if (current->num == chunk[index_chunk])
 			{
