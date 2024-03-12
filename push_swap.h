@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:49:06 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/04 13:16:37 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/12 13:39:54 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,20 @@ void	ft_sort(t_stack **a);
 void	ft_add_to_stack(t_stack **a, t_stack *new_node);
 void	ft_check_push(t_stack **a, t_stack **b);
 t_stack	*ft_new_node(int content);
-int		ft_find_smallest(t_stack **a); //delete later
+int		ft_find_smallest(t_stack **a);
+int		ft_find_biggest(t_stack **stack);
+int		ft_find_mid(t_stack **a, t_stack **b);
+int		**ft_make_chunks(t_stack **a);
+int		ft_calc_moves(t_stack **a, int index);
+int		*ft_fake_chunks(void);
+int		ft_scan_top(t_stack **a, int *chunk);
+int		ft_scan_bottom(t_stack **a, int *chunk);
+void	ft_scan_move(t_stack **a, int *chunk);
+int		ft_calc_moves(t_stack **a, int index);
+void	ft_calc_which_command(t_stack **a, int	index, int moves);
+void	ft_calc_which_command_b(t_stack **b, int	index, int moves);
+int		*ft_update_chunk(int *chunk);
+void	ft_sort_b(t_stack **a, t_stack **b);
+void	ft_biggest_to_top(t_stack **b);
 
 #endif
