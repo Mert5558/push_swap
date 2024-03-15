@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 12:26:03 by merdal            #+#    #+#             */
-/*   Updated: 2024/02/26 14:50:45 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/15 11:20:06 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,23 @@ void	ft_pa(t_stack **a, t_stack **b, int i)
 
 void	ft_ra(t_stack **a, int i)
 {
-	t_stack	*temp;
+    t_stack *temp;
 
-	if ((*a) == NULL || (*a)->next == NULL)
-		return ;
-	temp = *a;
-	*a = ft_lstlast(*a);
-	(*a)->next = temp;
-	*a = temp->next;
-	temp->next = NULL;
-	if (i == 0)
-		write(1, "ra\n", 3);
+    if ((*a) == NULL || (*a)->next == NULL)
+        return;
+    
+    temp = *a;
+    *a = ft_lstlast(*a);
+    (*a)->next = temp;
+    (*a)->prev->next = NULL;
+    temp->prev = (*a);
+    *a = temp->next;
+    temp->next = NULL;
+    
+    if (i == 0)
+        write(1, "ra\n", 3);
 }
+
 
 void	ft_rra(t_stack **a, int i)
 {
