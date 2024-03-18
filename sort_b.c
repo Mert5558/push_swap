@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:19:43 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/12 14:49:43 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/18 12:04:50 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_check_if_smallest(t_stack **b, t_stack **a)
 			return (1);
 		current = current->next;
 	}
-		return (0);
+	return (0);
 }
 
 int ft_check_if_biggest(t_stack **b, t_stack **a)
@@ -39,7 +39,6 @@ int ft_check_if_biggest(t_stack **b, t_stack **a)
     }
     	return (0);
 }
-
 
 void	ft_smallest_to_top(t_stack **b)
 {
@@ -69,31 +68,26 @@ void	ft_mid_to_top(t_stack **a, t_stack **b)
 	index_mid = ft_find_mid(a, b);
 	moves = ft_calc_moves(b, index_mid);
 	ft_calc_which_command_b(b, index_mid, moves);
-	ft_pb(b, a, 0);
-	ft_biggest_to_top(b);
 }
 
 void	ft_sort_b(t_stack **a, t_stack **b)
 {
-	while (a)
+	if (ft_check_if_biggest(b, a) == 0)
 	{
-		if (ft_check_if_biggest(b, a) == 0)
-		{
-			write(1, "big\n", 4);
-			ft_biggest_to_top(b);
-			ft_pb(b, a, 0);
-		}
-		else if (ft_check_if_smallest(b, a) == 0)
-		{
-			write(1, "sml\n", 4);
-			ft_biggest_to_top(b);
-			ft_pb(b, a, 0);
-			ft_rb(b, 0);
-		}
-		else if ((ft_check_if_biggest(b, a) == 1) && (ft_check_if_smallest(b, a) == 1))
-		{
-			write(1, "mid\n", 4);
-			ft_mid_to_top(a, b);
-		}
+		write(1, "big\n", 4);
+		ft_biggest_to_top(b);
+		ft_pb(b, a, 0);
+	}
+	else if (ft_check_if_smallest(b, a) == 0)
+	{
+		write(1, "sml\n", 4);
+		ft_biggest_to_top(b);
+		ft_pb(b, a, 0);
+	}
+	else if ((ft_check_if_biggest(b, a) == 1) && (ft_check_if_smallest(b, a) == 1))
+	{
+		write(1, "mid\n", 4);
+		ft_mid_to_top(a, b);
+		ft_pb(b, a, 0);
 	}
 }

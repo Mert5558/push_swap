@@ -6,7 +6,7 @@
 #    By: merdal <merdal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 11:52:48 by merdal            #+#    #+#              #
-#    Updated: 2024/03/11 14:50:38 by merdal           ###   ########.fr        #
+#    Updated: 2024/03/13 14:51:37 by merdal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ SRCS =	push_swap.c \
 		lst_utils.c \
 		make_chunks.c \
 		scan.c \
-		fake_chunk.c \
 		sort_b.c \
 		sort_utils.c\
 		chunk_utils.c

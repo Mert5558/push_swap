@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:51:59 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/08 18:37:19 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/18 11:04:33 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,25 @@ void ft_add_to_stack(t_stack **a, t_stack *new_node)
         return;
     
     if (!*a) {
-        // If the stack is empty, set the new node as both the first and last node
         *a = new_node;
-        new_node->prev = NULL; // Ensure that the prev pointer of the first node is NULL
+        new_node->prev = NULL;
     } else {
         t_stack *last_node = ft_lstlast(*a);
-        last_node->next = new_node; // Update the next pointer of the last node
-        new_node->prev = last_node; // Set the prev pointer of the new node
+        last_node->next = new_node;
+        new_node->prev = last_node;
     }
 }
 
 
 void	ft_add_nodes(t_stack **a, int content)
 {
-	t_stack	*new_node;
+    t_stack	*new_node;
 
-	new_node = ft_new_node(content);
-	if (!new_node)
-	{
-		ft_error();
-		return ;
-	}
-	ft_add_to_stack(a, new_node);
+    new_node = ft_new_node(content);
+    if (!new_node)
+    {
+        ft_error();
+        return ;
+    }
+    ft_add_to_stack(a, new_node);
 }

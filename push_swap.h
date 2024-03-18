@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:49:06 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/12 13:39:54 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/18 12:01:42 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void	ft_calc_which_command_b(t_stack **b, int	index, int moves);
 int		*ft_update_chunk(int *chunk);
 void	ft_sort_b(t_stack **a, t_stack **b);
 void	ft_biggest_to_top(t_stack **b);
+void	print_array(int *arr, int size);
 
 #endif

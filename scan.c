@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 12:10:36 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/12 10:56:13 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/15 11:57:16 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	ft_scan_top(t_stack **a, int *chunk)
 
 	while (current != NULL)
 	{
+		index_chunk = 0;
 		while (index_chunk < 20)
 		{
 			if (current->num == chunk[index_chunk])
@@ -37,19 +38,11 @@ int	ft_scan_top(t_stack **a, int *chunk)
 			}
 			index_chunk++;
 		}
-		index_chunk = 0;
 		current = current->next;
 		index_stack++;
 	}
 	return (0);
 }
-
-// void print_last_chunk(t_stack *last_chunk)
-// {
-//     printf("Last chunk: ");
-//     printf("%ld ", last_chunk->num);
-//     printf("\n");
-// }
 
 int	ft_scan_bottom(t_stack **a, int *chunk)
 {
@@ -64,7 +57,7 @@ int	ft_scan_bottom(t_stack **a, int *chunk)
 		{
 			if (current->num == chunk[index_chunk])
 			{
-				return(index_stack);
+				return (index_stack);
 			}
 			index_chunk++;
 		}
@@ -85,6 +78,8 @@ void	ft_scan_move(t_stack **a, int *chunk)
 	index_2 = ft_scan_bottom(a, chunk);
 	moves_1 = ft_calc_moves(a, index_1);
 	moves_2 = ft_calc_moves(a, index_2);
+	printf("%d\n", index_1);
+	printf("%d\n", index_2);
 	if (moves_1 < moves_2)
 	{
 		ft_calc_which_command(a, index_1, moves_1);

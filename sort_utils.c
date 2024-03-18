@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:07:26 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/12 14:24:39 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/14 11:03:22 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,20 @@ int	ft_find_mid(t_stack **a, t_stack **b)
 	int	index = 0;
 	t_stack	*top_a = *a;
 	t_stack	*current = *b;
+	int	nearest_big = INT_MAX;
+	int	nearest_index = - 1;
 
 	while (current != NULL)
 	{
-		if (top_a->num > current->num)
+		if (current->num > top_a->num && current->num < nearest_big)
 		{
-			break;
+			nearest_big = current->num;
+			nearest_index = index;
 		}
 		current = current->next;
 		index++;
 	}
-	return (index);
+	return (nearest_index + 1);
 }
 
 int	ft_calc_moves(t_stack **a, int index)
@@ -120,7 +123,7 @@ void	ft_calc_which_command(t_stack **a, int	index, int moves)
 	}
 }
 
-void	ft_calc_which_command_b(t_stack **b, int	index, int moves)
+void	ft_calc_which_command_b(t_stack **b, int index, int moves)
 {
 	int	i = 0;
 	
