@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:07:26 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/14 11:03:22 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/20 12:20:12 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ int	ft_find_smallest(t_stack **a)
 int	ft_find_mid(t_stack **a, t_stack **b)
 {
 	int	index = 0;
-	t_stack	*top_a = *a;
-	t_stack	*current = *b;
+	t_stack	*top_b = *b;
+	t_stack	*current = *a;
 	int	nearest_big = INT_MAX;
 	int	nearest_index = - 1;
 
 	while (current != NULL)
 	{
-		if (current->num > top_a->num && current->num < nearest_big)
+		if (current->num > top_b->num && current->num < nearest_big)
 		{
 			nearest_big = current->num;
 			nearest_index = index;
@@ -74,73 +74,5 @@ int	ft_find_mid(t_stack **a, t_stack **b)
 		current = current->next;
 		index++;
 	}
-	return (nearest_index + 1);
-}
-
-int	ft_calc_moves(t_stack **a, int index)
-{
-	int	moves;
-
-	moves = 0;
-	if (index < ft_lstsize(*a) / 2)
-	{
-		while (index != 0)
-		{
-			index--;
-			moves++;
-		}
-	}
-	else
-	{
-		while (index < ft_lstsize(*a))
-		{
-			index++;
-			moves++;
-		}
-	}
-	return (moves);
-}
-
-void	ft_calc_which_command(t_stack **a, int	index, int moves)
-{
-	int	i = 0;
-	
-	if (index < ft_lstsize(*a) / 2)
-	{
-		while (i < moves)
-		{
-			ft_ra(a, 0);
-			i++;
-		}
-	}
-	else
-	{
-		while (i < moves)
-		{
-			ft_rra(a, 0);
-			i++;
-		}
-	}
-}
-
-void	ft_calc_which_command_b(t_stack **b, int index, int moves)
-{
-	int	i = 0;
-	
-	if (index < ft_lstsize(*b) / 2)
-	{
-		while (i < moves)
-		{
-			ft_rb(b, 0);
-			i++;
-		}
-	}
-	else
-	{
-		while (i < moves)
-		{
-			ft_rrb(b, 0);
-			i++;
-		}
-	}
+	return (nearest_index);
 }
