@@ -6,7 +6,7 @@
 #    By: merdal <merdal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 11:52:48 by merdal            #+#    #+#              #
-#    Updated: 2024/03/13 14:51:37 by merdal           ###   ########.fr        #
+#    Updated: 2024/03/19 15:57:25 by merdal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,11 @@ SRCS =	push_swap.c \
 		make_chunks.c \
 		scan.c \
 		sort_b.c \
-		sort_utils.c\
-		chunk_utils.c
+		sort_utils.c \
+		chunk_utils.c \
+		sort_a.c \
+		sort_utils_2.c \
+		sort_utils_3.c
 
 OBJS =	$(SRCS:.c=.o)
 
