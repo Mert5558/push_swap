@@ -6,11 +6,20 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:27:59 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/20 16:31:46 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/21 12:32:50 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void returnArrayValues(int arr[], int size) {
+    printf("Array values: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
 
 void	ft_sort(t_stack **a)
 {
@@ -46,7 +55,8 @@ void	ft_sort(t_stack **a)
 	{
 		while (i < chunks_size_2 && b != NULL)
 		{
-			ft_scan_move(&b, chunk_2, chunks_size_2);
+			ft_choose(a, &b);
+			//ft_scan_move(&b, chunk_2, chunks_size_2);
 			ft_sort_a(a, &b);
 			i++;
 		}

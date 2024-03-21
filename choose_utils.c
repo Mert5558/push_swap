@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_a.c                                           :+:      :+:    :+:   */
+/*   choose_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/19 14:48:23 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/21 11:44:04 by merdal           ###   ########.fr       */
+/*   Created: 2024/03/21 13:39:34 by merdal            #+#    #+#             */
+/*   Updated: 2024/03/21 16:13:18 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_a(t_stack **a, t_stack **b)
+int	*ft_get_options_bottom(t_stack **a, t_stack **b, int size_options)
 {
-	if (ft_check_if_biggest(a, b) == 0)
+	t_stack	*current = ft_lstlast(*b);
+	int	*options;
+	int	i = 0;
+
+	options = (int *)malloc(sizeof(int) * size_options);
+	if (!options)
+		return (NULL);
+
+	while (i < size_options)
 	{
-		ft_smallest_to_top(a);
-		ft_pa(a, b, 0);
+		options[i] = ft_moves_options(a, current) + i + 1;
+		i++;
+		current = current->prev;
 	}
-	else if (ft_check_if_smallest(a, b) == 0)
-	{
-		ft_smallest_to_top(a);
-		ft_pa(a, b, 0);
-	}
-	else if ((ft_check_if_smallest(a, b) == 1) && (ft_check_if_biggest(a, b) == 1))
-	{
-		ft_mid_to_top(a, b);
-		ft_pa(a, b, 0);
-	}
+	return (options);
 }
