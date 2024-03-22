@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:53:52 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/21 16:58:15 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/22 16:10:24 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,32 +127,20 @@ void print_array(int *array, int size) {
 void	ft_choose(t_stack **a, t_stack **b)
 {
 	int	*options;
-	int	*options_2;
 	int	less_moves;
-	int	less_moves_2;
-	int	temp;
-	int	size_options = 3;
+	int	size_options = 15;
+
+	if (ft_lstsize(*b) < size_options)
+		size_options = ft_lstsize(*b);
 
 	options = ft_get_options(a, b, size_options);
-	options_2 = ft_get_options_bottom(a, b, size_options);
-	print_array(options, size_options);
-	print_array(options_2, size_options);
-	if (!options || !options_2)
+
+	if (!options)
 		ft_error();
 
 	less_moves = ft_find_less_moves(options, size_options);
-	temp = ft_find_less_moves(options_2, size_options);
-	less_moves_2 = ft_lstsize(*b) + temp;
-	printf("less_moves: %d\n", less_moves);
-	printf("less_moves_2: %d\n", less_moves_2);
-	printf("temp: %d\n", temp);
 
-	if (options[less_moves] <= options_2[temp])
-		ft_index_to_top(b, less_moves);
-	else
-		ft_index_to_top(b, less_moves_2);
+	ft_index_to_top(b, less_moves);
 
 	free(options);
-
-	// 36 2 29 32 3 31 42 4 10 45 24 18 20 25 28 21 19 16 12 49 27 50 23 13 41 6 47 39 26 9 48 37 14 7 35 5 11 40 43 34 8 22 30 46 33 15 1 38 17 44 
 }
