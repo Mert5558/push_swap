@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:49:06 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/21 15:12:28 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/22 15:52:09 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	ft_biggest_to_top(t_stack **b);
 void	ft_index_to_top(t_stack **a, int index);
 int		*ft_update_chunk_2(t_stack **a, int *chunk, int chunk_size);
 void	ft_choose(t_stack **a, t_stack **b);
+void	ft_choose_bottom(t_stack **a, t_stack **b);
 int		ft_find_less_moves(int *options, int size_options);
 int		*ft_get_options(t_stack **a, t_stack **b, int size_options);
 int		*ft_get_options_bottom(t_stack **a, t_stack **b, int size_options);
