@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 12:27:17 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/18 13:04:12 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/22 14:51:12 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 void	ft_sb(t_stack **b, int i)
 {
-	t_stack	*temp;
+    t_stack	*temp;
 
-	if (*b == NULL || (*b)->next == NULL)
-		return ;
-	temp = *b;
-	*b = (*b)->next;
-	temp->next = (*b)->next;
-	(*b)->next =temp;
-	if (i == 0)
-		write(1, "sb\n", 3);
+    if (*b == NULL || (*b)->next == NULL)
+        return ;
+    temp = *b;
+    *b = (*b)->next;
+    temp->next = (*b)->next;
+    if ((*b)->next)  // Check if there's a third node
+        (*b)->next->prev = temp;  // Update the prev pointer of the third node
+    (*b)->next = temp;
+    temp->prev = *b;  // Update the prev pointer of the second node
+    if (i == 0)
+        write(1, "sb\n", 3);
 }
 
 void	ft_pb(t_stack **b, t_stack **a, int i)
