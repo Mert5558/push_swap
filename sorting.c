@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:27:59 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/21 12:32:50 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/22 17:41:10 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,27 @@ void returnArrayValues(int arr[], int size) {
     printf("\n");
 }
 
+int	ft_is_in_stack(t_stack *stack, int num)
+{
+    while (stack != NULL)
+    {
+        if (stack->num == num)
+            return (1);
+        stack = stack->next;
+    }
+    return (0);
+}
 
 void	ft_sort(t_stack **a)
 {
 	t_stack	*b = NULL;
+	t_stack	*last;
 	int *chunk;
-	int	*chunk_2;
-	int chunk_size = 30;
-	int chunks_size_2 = 15;
+	int chunk_size = 40;
 	int i = 0;
+	int last_num;
 
 	chunk = ft_fake_chunks(chunk_size);
-	chunk_2 = ft_create_chunk(&b, chunk_size);
 	
 	while (*a != NULL)
 	{
@@ -45,22 +54,31 @@ void	ft_sort(t_stack **a)
 		i = 0;
 	}
 	
-	ft_scan_move(&b, chunk_2, chunks_size_2);
+	last = ft_lstlast(b);
+	last_num = last->num;
+
 	ft_pa(a, &b, 0);
 	i++;
-	ft_scan_move(&b, chunk_2, chunks_size_2);
 	ft_pa(a, &b, 0);
 	i++;
 	while (b != NULL)
 	{
-		while (i < chunks_size_2 && b != NULL)
+		while (b != NULL)
 		{
-			ft_choose(a, &b);
-			//ft_scan_move(&b, chunk_2, chunks_size_2);
-			ft_sort_a(a, &b);
+			if (!ft_is_in_stack(b, last_num))
+			{
+				ft_choose_bottom(a, &b);
+				ft_sort_a(a, &b);
+			}
+			else
+			{
+				ft_choose(a, &b);
+				ft_sort_a(a, &b);
+			}
 			i++;
 		}
-		chunk_2 = ft_update_chunk_2(a, chunk_2, chunks_size_2);
 		i = 0;
 	}
+	
+	ft_smallest_to_top(a);
 }
