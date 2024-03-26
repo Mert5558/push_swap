@@ -6,11 +6,22 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:53:52 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/22 16:10:24 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/26 16:01:21 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void print_array(int *array, int size) {
+    printf("[");
+    for (int i = 0; i < size; i++) {
+        printf("%d", array[i]);
+        if (i < size - 1) {
+            printf(", ");
+        }
+    }
+    printf("]\n");
+}
 
 int	ft_biggest_to_top_moves(t_stack **a)
 {
@@ -113,18 +124,30 @@ int	*ft_get_options(t_stack **a, t_stack **b, int size_options)
 	return (options);
 }
 
-void print_array(int *array, int size) {
-    printf("[");
-    for (int i = 0; i < size; i++) {
-        printf("%d", array[i]);
-        if (i < size - 1) {
-            printf(", ");
+int ft_is_in_chunk(t_stack **b, int *chunk_2, int size_options)
+{
+    int count = 0;
+    t_stack *current = *b;
+
+    while (current != NULL && count < size_options)
+    {
+        int i = 0;
+        while (i < size_options)
+        {
+            if (current->num == chunk_2[i])
+            {
+                count++;
+                break;                     // fehler hier
+            }
+            i++;
         }
+        current = current->next;
     }
-    printf("]\n");
+	printf("count: %d\n", count);
+    return (count);
 }
 
-void	ft_choose(t_stack **a, t_stack **b)
+void	ft_choose(t_stack **a, t_stack **b, int *chunk_2)
 {
 	int	*options;
 	int	less_moves;
@@ -132,6 +155,8 @@ void	ft_choose(t_stack **a, t_stack **b)
 
 	if (ft_lstsize(*b) < size_options)
 		size_options = ft_lstsize(*b);
+
+	size_options = ft_is_in_chunk(b, chunk_2, size_options);
 
 	options = ft_get_options(a, b, size_options);
 
