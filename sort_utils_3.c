@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:55:56 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/21 15:14:49 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/25 14:58:36 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,16 @@ void	ft_index_to_top(t_stack **stack, int index)
 
 int ft_find_less_moves(int *options, int size_options)
 {
-    int i;
+    int i = 1;
     int min_index = 0;
 
-    for (i = 1; i < size_options; i++) {
-        if (options[i] < options[min_index]) {
+    while (i < size_options)
+	{
+        if (options[i] < options[min_index])
+		{
             min_index = i;
         }
+        i++;
     }
     return (min_index);
 }

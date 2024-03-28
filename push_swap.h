@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:49:06 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/22 15:52:09 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/28 13:00:03 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ void	ft_smallest_to_top(t_stack **b);
 void	ft_mid_to_top(t_stack **a, t_stack **b);
 void	ft_biggest_to_top(t_stack **b);
 void	ft_index_to_top(t_stack **a, int index);
-int		*ft_update_chunk_2(t_stack **a, int *chunk, int chunk_size);
-void	ft_choose(t_stack **a, t_stack **b);
-void	ft_choose_bottom(t_stack **a, t_stack **b);
+int		*ft_update_chunk_2(int *chunk, int chunk_size);
+int		ft_choose(t_stack **a, t_stack **b, int *chunk_2);
+int		ft_choose_bottom(t_stack **a, t_stack **b, int *chunk_2);
 int		ft_find_less_moves(int *options, int size_options);
 int		*ft_get_options(t_stack **a, t_stack **b, int size_options);
 int		*ft_get_options_bottom(t_stack **a, t_stack **b, int size_options);
@@ -87,5 +87,10 @@ int		ft_check_if_smallest2(t_stack **a, t_stack *value);
 int		ft_mid_to_top_moves(t_stack **a, t_stack *value);
 int		ft_smallest_to_top_moves(t_stack **a);
 int		ft_biggest_to_top_moves(t_stack **a);
+int		ft_is_in_chunk(int *chunk_2, t_stack *current);
+void	ft_top_or_bottom(t_stack **b, int index1, int index2);
+int		ft_is_chunk_finished(t_stack **b, int *chunk_2);
+int		ft_finished_top(t_stack **b, int *chunk_2);
+int		ft_finished_bottom(t_stack **b, int *chunk_2);
 
 #endif

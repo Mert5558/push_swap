@@ -6,7 +6,7 @@
 #    By: merdal <merdal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 11:52:48 by merdal            #+#    #+#              #
-#    Updated: 2024/03/22 16:16:44 by merdal           ###   ########.fr        #
+#    Updated: 2024/03/27 13:46:18 by merdal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,9 @@ SRCS =	push_swap.c \
 		sort_utils_3.c \
 		ft_choose.c \
 		ft_choose_bottom.c \
-		choose_utils.c
+		choose_utils.c \
+		choose_utils_2.c \
+		ft_top_or_bottom.c
 
 OBJS =	$(SRCS:.c=.o)
 

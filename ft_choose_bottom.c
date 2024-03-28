@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 16:16:14 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/26 12:00:14 by merdal           ###   ########.fr       */
+/*   Updated: 2024/03/28 16:58:40 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,38 +31,39 @@ int	*ft_get_options_bottom(t_stack **a, t_stack **b, int size_options)
 	return (options);
 }
 
-int	ft_is_in_chunk_2(t_stack **b, int *chunk_2, int size_options)
+int ft_check_stack_2(t_stack **b, int *chunk_2, int size_options)
 {
-	int	i = 0;
-	int	count = 0;
 	t_stack	*current = ft_lstlast(*b);
-	
-	while (count < size_options)
+	int	count = 0;
+	int i = 0;
+
+	while (i < size_options)
 	{
-		while (chunk_2[i] != '\0')
+		if (ft_is_in_chunk(chunk_2, current) == 1)
 		{
-			if (current->num == chunk_2[i])
-				count++;
-			i++;
+			count++;
 		}
+		else if (ft_is_in_chunk(chunk_2, current) == 0)
+			break;
 		current = current->prev;
-		i = 0;
+		i++;
 	}
+	//printf("count bot: %d\n", count);
 	return (count);
 }
 
-void	ft_choose_bottom(t_stack **a, t_stack **b, int *chunk_2)
+int	ft_choose_bottom(t_stack **a, t_stack **b, int *chunk_2)
 {
 	int	*options;
 	int	less_moves;
 	int	temp;
-	int	size_options = 15;
+	int	size_options = 50;
 
 
 	if (ft_lstsize(*b) < size_options)
 		size_options = ft_lstsize(*b);
 	
-	size_options = ft_is_in_chunk_2(b, chunk_2, size_options);
+	size_options = ft_check_stack_2(b, chunk_2, size_options);
 
 	options = ft_get_options_bottom(a, b, size_options);
 	
@@ -73,6 +74,8 @@ void	ft_choose_bottom(t_stack **a, t_stack **b, int *chunk_2)
 	less_moves = ft_lstsize(*b) - temp - 1;
 
 	ft_index_to_top(b, less_moves);
+	//printf("i do bottom\n");
 
 	free(options);
+	return (less_moves);
 }
