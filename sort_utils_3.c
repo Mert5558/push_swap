@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:55:56 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/25 14:58:36 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:15:29 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,3 @@ int ft_find_less_moves(int *options, int size_options)
     }
     return (min_index);
 }
-
