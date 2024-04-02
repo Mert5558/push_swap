@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 12:26:03 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/22 14:52:13 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/01 11:56:22 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	ft_sa(t_stack **a, int i)
     temp = *a;
     *a = (*a)->next;
     temp->next = (*a)->next;
-    if ((*a)->next)  // Check if there's a third node
-        (*a)->next->prev = temp;  // Update the prev pointer of the third node
+    if ((*a)->next)
+        (*a)->next->prev = temp;
     (*a)->next = temp;
-    temp->prev = *a;  // Update the prev pointer of the second node
+    temp->prev = *a;
     if (i == 0)
         write(1, "sa\n", 3);
 }
@@ -38,11 +38,11 @@ void	ft_pa(t_stack **a, t_stack **b, int i)
     temp = *a;
     *a = *b;
     *b = (*b)->next;
-    if (*b) // Check if b is not empty after the pop
-        (*b)->prev = NULL; // Update the prev pointer of the new first node of b
+    if (*b)
+        (*b)->prev = NULL;
     (*a)->next = temp;
-    if (temp) // Check if a was not empty before the push
-        temp->prev = *a; // Update the prev pointer of the second node of a
+    if (temp)
+        temp->prev = *a;
     if (i == 0)
         write(1, "pa\n", 3);
 }
@@ -81,15 +81,15 @@ void	ft_rra(t_stack **a, int i)
         return ;
     
     last = *a;
-    while (last->next) // Find the last node
+    while (last->next)
         last = last->next;
 
-    temp = last; // Save the last node
-    last->prev->next = NULL; // Disconnect the last node from the second last node
-    temp->next = *a; // Connect the new first node to the old first node
-    (*a)->prev = temp; // Update the prev pointer of the old first node
-    *a = temp; // Move the head pointer to the last node
-    temp->prev = NULL; // Update the prev pointer of the new first node
+    temp = last;
+    last->prev->next = NULL;
+    temp->next = *a;
+    (*a)->prev = temp;
+    *a = temp;
+    temp->prev = NULL;
 
     if (i == 0)
         write(1, "rra\n", 4);
