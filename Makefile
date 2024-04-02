@@ -6,7 +6,7 @@
 #    By: merdal <merdal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 11:52:48 by merdal            #+#    #+#              #
-#    Updated: 2024/03/27 13:46:18 by merdal           ###   ########.fr        #
+#    Updated: 2024/04/01 14:18:09 by merdal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ SRCS =	push_swap.c \
 		commands.c \
 		sorting.c \
 		lst_utils.c \
-		make_chunks.c \
 		scan.c \
 		sort_b.c \
 		sort_utils.c \
@@ -41,7 +40,10 @@ SRCS =	push_swap.c \
 		ft_choose_bottom.c \
 		choose_utils.c \
 		choose_utils_2.c \
-		ft_top_or_bottom.c
+		ft_top_or_bottom.c \
+		sort_3.c \
+		ft_rough_sort.c \
+		ft_last_sort.c
 
 OBJS =	$(SRCS:.c=.o)
 
