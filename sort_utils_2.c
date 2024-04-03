@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:51:54 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/25 12:05:36 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/03 13:40:57 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,34 @@ void	ft_calc_which_command_b(t_stack **b, int index, int moves)
 			i++;
 		}
 	}
+}
+
+int	ft_smallest_value(t_stack **a)
+{
+	t_stack	*current = *a;
+	int		smallest = current->num;
+
+	while (current != NULL)
+	{
+		if (current->num < smallest)
+			smallest = current->num;
+		current = current->next;
+	}
+	return (smallest);
+}
+
+int ft_next_value(t_stack **a, int value)
+{
+	t_stack	*current = *a;
+	int		next_value = INT_MAX;
+
+	while (current != NULL)
+    {
+		if (current->num > value && current->num < next_value)
+		{
+			next_value = current->num;
+		}
+		current = current->next;
+	}
+	return (next_value);
 }
