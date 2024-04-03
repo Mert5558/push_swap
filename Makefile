@@ -6,7 +6,7 @@
 #    By: merdal <merdal@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/20 11:52:48 by merdal            #+#    #+#              #
-#    Updated: 2024/04/01 14:18:09 by merdal           ###   ########.fr        #
+#    Updated: 2024/04/02 14:54:57 by merdal           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ SRCS =	push_swap.c \
 		ft_top_or_bottom.c \
 		sort_3.c \
 		ft_rough_sort.c \
-		ft_last_sort.c
+		ft_last_sort.c \
+		ft_sort_5.c
 
 OBJS =	$(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:49:06 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/01 14:18:25 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/03 13:44:33 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,9 @@ int		ft_finished_bottom(t_stack **b, int *chunk_2);
 void	ft_sort_3(t_stack **a);
 void	ft_rough_sort(t_stack **a, t_stack **b);
 void	ft_last_sort(t_stack **a, t_stack **b);
+void	ft_sort_5(t_stack **a, t_stack **b);
+int		ft_smallest_value(t_stack **a);
+int		ft_next_value(t_stack **a, int value);
+int		*ft_make_chunk(t_stack **a, int chunk_size);
 
 #endif
