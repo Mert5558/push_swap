@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 13:22:39 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/01 14:04:33 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/02 14:40:12 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void ft_last_sort(t_stack **a, t_stack **b)
 	ft_pa(a, b, 0);
 	ft_pa(a, b, 0);
 	
-	while (b != NULL)
+	while (*b != NULL)
 	{
 		while (ft_is_chunk_finished(b, chunk_2) == 0)
 		{
@@ -35,9 +35,7 @@ void ft_last_sort(t_stack **a, t_stack **b)
 			ft_sort_a(a, b);
 		}
 		chunk_2 = ft_create_chunk(b, chunk_2_size);
-		//print_array(chunk_2, chunk_2_size);
-		// ft_choose(a, &b, chunk_2);
-		// ft_sort_a(a, &b);
 	}
+	free(chunk_2);
 	ft_smallest_to_top(a);
 }
