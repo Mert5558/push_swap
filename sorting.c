@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:27:59 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/03 15:55:50 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/04 15:53:34 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ void	ft_sort(t_stack **a)
 {
 	t_stack	*b = NULL;
 
-	if (ft_lstsize(*a) == 3)
-		ft_sort_3(a);
-	else if (ft_lstsize(*a) == 5)
-		ft_sort_5(a, &b);
+	if (ft_lstsize(*a) <= 5)
+		ft_sort_small(a, &b);
 	else
 	{
 		ft_rough_sort(a, &b);

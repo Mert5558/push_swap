@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:47:30 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/03 16:10:22 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/04 12:33:25 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int	*ft_make_chunk(t_stack **a, int chunk_size)
 	int	value;
 	int	i = 0;
 
+	if (chunk_size == 0)
+		return (NULL);
+	
 	chunk = malloc(chunk_size * sizeof(int));
 	if (chunk == NULL)
 		return (NULL);

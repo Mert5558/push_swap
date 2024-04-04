@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 16:16:14 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/01 12:14:42 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/04 14:33:02 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int	ft_choose_bottom(t_stack **a, t_stack **b, int *chunk_2)
 	less_moves = ft_lstsize(*b) - temp - 1;
 
 	ft_index_to_top(b, less_moves);
-	//printf("i do bottom\n");
 
 	free(options);
 	return (less_moves);

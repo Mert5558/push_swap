@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:51:54 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/03 13:40:57 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/04 16:31:52 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_calc_moves(t_stack **a, int index)
 	int	moves;
 
 	moves = 0;
-	if (index < ft_lstsize(*a) / 2)
+	if (index <= ft_lstsize(*a) / 2)
 	{
 		while (index != 0)
 		{
@@ -40,7 +40,7 @@ void	ft_calc_which_command(t_stack **a, int	index, int moves)
 {
 	int	i = 0;
 	
-	if (index < ft_lstsize(*a) / 2)
+	if (index <= ft_lstsize(*a) / 2)
 	{
 		while (i < moves)
 		{

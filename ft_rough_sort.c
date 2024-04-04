@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 13:18:39 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/03 16:29:46 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/04 14:33:06 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 void ft_rough_sort(t_stack **a, t_stack **b)
 {
 	int *chunk;
-	int chunk_size = 5;
+	int chunk_size = 50;
 	int i = 0;
 	
 	chunk = ft_make_chunk(a, chunk_size);
-	print_array(chunk, chunk_size);
 	
 	while (*a != NULL)
 	{
@@ -32,9 +31,7 @@ void ft_rough_sort(t_stack **a, t_stack **b)
 		if (ft_lstsize(*a) < chunk_size)
 			chunk_size = ft_lstsize(*a);
 
-		chunk = ft_update_chunk(chunk, chunk_size);
-		printf("update");
-		print_array(chunk, chunk_size);
+		chunk = ft_make_chunk(a, chunk_size);
 		i = 0;
 	}
 	free(chunk);
