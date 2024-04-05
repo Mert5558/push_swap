@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:55:56 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/01 14:15:29 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/05 16:34:27 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_smallest_to_top(t_stack **a)
 {
 	int	index_smallest;
 	int	moves;
-	
+
 	index_smallest = ft_find_smallest(a);
 	moves = ft_calc_moves(a, index_smallest);
 	ft_calc_which_command(a, index_smallest, moves);
@@ -26,7 +26,7 @@ void	ft_biggest_to_top(t_stack **a)
 {
 	int	index_biggest;
 	int	moves;
-	
+
 	index_biggest = ft_find_biggest(a);
 	moves = ft_calc_moves(a, index_biggest);
 	ft_calc_which_command(a, index_biggest, moves);
@@ -50,18 +50,20 @@ void	ft_index_to_top(t_stack **stack, int index)
 	ft_calc_which_command_b(stack, index, moves);
 }
 
-int ft_find_less_moves(int *options, int size_options)
+int	ft_find_less_moves(int *options, int size_options)
 {
-    int i = 1;
-    int min_index = 0;
+	int	i;
+	int	min_index;
 
-    while (i < size_options)
+	i = 1;
+	min_index = 0;
+	while (i < size_options)
 	{
-        if (options[i] < options[min_index])
+		if (options[i] < options[min_index])
 		{
-            min_index = i;
-        }
-        i++;
-    }
-    return (min_index);
+			min_index = i;
+		}
+		i++;
+	}
+	return (min_index);
 }

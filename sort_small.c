@@ -6,13 +6,13 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 13:30:08 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/04 16:13:14 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/05 16:29:33 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_sort_3(t_stack **a)
+void	ft_sort_3(t_stack **a)
 {
 	if (ft_find_smallest(a) == 0)
 	{
@@ -54,7 +54,7 @@ void	ft_sort_5(t_stack **a, t_stack **b)
 	ft_smallest_to_top(a);
 }
 
-void ft_sort_small(t_stack **a, t_stack **b)
+void	ft_sort_small(t_stack **a, t_stack **b)
 {
 	if (ft_lstsize(*a) == 2)
 		ft_sa(a, 0);

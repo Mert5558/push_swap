@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 15:51:54 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/04 16:31:52 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/05 16:32:30 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,11 @@ int	ft_calc_moves(t_stack **a, int index)
 	return (moves);
 }
 
-void	ft_calc_which_command(t_stack **a, int	index, int moves)
+void	ft_calc_which_command(t_stack **a, int index, int moves)
 {
-	int	i = 0;
-	
+	int	i;
+
+	i = 0;
 	if (index <= ft_lstsize(*a) / 2)
 	{
 		while (i < moves)
@@ -60,8 +61,9 @@ void	ft_calc_which_command(t_stack **a, int	index, int moves)
 
 void	ft_calc_which_command_b(t_stack **b, int index, int moves)
 {
-	int	i = 0;
-	
+	int	i;
+
+	i = 0;
 	if (index < ft_lstsize(*b) / 2)
 	{
 		while (i < moves)
@@ -82,9 +84,11 @@ void	ft_calc_which_command_b(t_stack **b, int index, int moves)
 
 int	ft_smallest_value(t_stack **a)
 {
-	t_stack	*current = *a;
-	int		smallest = current->num;
+	t_stack	*current;
+	int		smallest;
 
+	current = *a;
+	smallest = current->num;
 	while (current != NULL)
 	{
 		if (current->num < smallest)
@@ -94,13 +98,15 @@ int	ft_smallest_value(t_stack **a)
 	return (smallest);
 }
 
-int ft_next_value(t_stack **a, int value)
+int	ft_next_value(t_stack **a, int value)
 {
-	t_stack	*current = *a;
-	int		next_value = INT_MAX;
+	t_stack	*current;
+	int		next_value ;
 
+	current = *a;
+	next_value = INT_MAX;
 	while (current != NULL)
-    {
+	{
 		if (current->num > value && current->num < next_value)
 		{
 			next_value = current->num;

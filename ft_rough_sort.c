@@ -6,20 +6,21 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 13:18:39 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/04 14:33:06 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/05 16:53:23 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_rough_sort(t_stack **a, t_stack **b)
+void	ft_rough_sort(t_stack **a, t_stack **b)
 {
-	int *chunk;
-	int chunk_size = 50;
-	int i = 0;
-	
+	int	*chunk;
+	int	chunk_size;
+	int	i;
+
+	chunk_size = 50;
 	chunk = ft_make_chunk(a, chunk_size);
-	
+	i = 0;
 	while (*a != NULL)
 	{
 		while (i < chunk_size && *a != NULL)
@@ -30,7 +31,6 @@ void ft_rough_sort(t_stack **a, t_stack **b)
 		}
 		if (ft_lstsize(*a) < chunk_size)
 			chunk_size = ft_lstsize(*a);
-
 		chunk = ft_make_chunk(a, chunk_size);
 		i = 0;
 	}

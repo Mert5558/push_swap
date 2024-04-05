@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:49:06 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/04 15:53:14 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/05 16:24:24 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int		ft_mid_to_top_moves(t_stack **a, t_stack *value);
 int		ft_smallest_to_top_moves(t_stack **a);
 int		ft_biggest_to_top_moves(t_stack **a);
 int		ft_is_in_chunk(int *chunk_2, t_stack *current);
-void	ft_top_or_bottom(t_stack **b, int index1, int index2);
 int		ft_is_chunk_finished(t_stack **b, int *chunk_2);
 int		ft_finished_top(t_stack **b, int *chunk_2);
 int		ft_finished_bottom(t_stack **b, int *chunk_2);
