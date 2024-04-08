@@ -6,24 +6,11 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:47:30 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/05 16:03:09 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/08 16:13:38 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	*ft_update_chunk(int *chunk, int chunk_size)
-{
-	int	i;
-
-	i = 0;
-	while (i < chunk_size)
-	{
-		chunk[i] += chunk_size;
-		i++;
-	}
-	return (chunk);
-}
 
 int	*ft_make_chunk(t_stack **a, int chunk_size)
 {
@@ -61,6 +48,8 @@ int	*ft_create_chunk(t_stack **b, int chunk_size)
 	i = 0;
 	if (chunk_size == 0)
 		return (NULL);
+	if (ft_lstsize(*b) < chunk_size)
+		chunk_size = ft_lstsize(*b);
 	chunk = malloc(chunk_size * sizeof(int));
 	if (chunk == NULL)
 		return (NULL);
@@ -75,17 +64,70 @@ int	*ft_create_chunk(t_stack **b, int chunk_size)
 	return (chunk);
 }
 
-int	*ft_update_chunk_2(int *chunk, int chunk_size)
+int	ft_biggest_value(t_stack **b)
 {
-	int	i;
+	t_stack	*current;
+	int		biggest;
 
-	i = 0;
-	while (i < chunk_size)
+	current = *b;
+	biggest = current->num;
+	while (current != NULL)
 	{
-		chunk[i] -= chunk_size;
-		i++;
+		if (current->num > biggest)
+			biggest = current->num;
+		current = current->next;
 	}
-	return (chunk);
+	return (biggest);
+}
+
+int ft_next_smallest_value(t_stack **b, int value)
+{
+    t_stack *current;
+    int next_smallest_value = INT_MIN;
+
+    current = *b;
+    while (current != NULL)
+    {
+        if (current->num < value && current->num > next_smallest_value)
+        {
+            next_smallest_value = current->num;
+        }
+        current = current->next;
+    }
+    return next_smallest_value;
+}
+
+
+int	*ft_make_chunk_2(t_stack **b, int *chunk,int chunk_size)
+{
+	t_stack	*current;
+	int 	*chunk_2;
+	int		value;
+	int		i;
+	
+	current = *b;
+	i = 0;
+	free(chunk);
+	if (ft_lstsize(*b) < chunk_size)
+		chunk_size = ft_lstsize(*b);
+	
+	chunk_2 = malloc(chunk_size * sizeof(int));
+	if (chunk_2 == NULL)
+		return (NULL);
+	
+	value = ft_biggest_value(b);
+	chunk_2[i] = value;
+	i++;
+	
+	while (i < chunk_size && current != NULL)
+	{
+		value = ft_next_smallest_value(b, value);
+		printf("value: %d\n", value);
+		chunk_2[i] = value;
+		i++;
+		current = current->next;
+	}
+	return (chunk_2);
 }
 
 int	ft_is_in_chunk(int *chunk_2, t_stack *current)

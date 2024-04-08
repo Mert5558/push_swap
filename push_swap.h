@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:49:06 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/05 16:24:24 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/08 16:08:43 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	ft_scan_move(t_stack **a, int *chunk, int chunk_size);
 int		ft_calc_moves(t_stack **a, int index);
 void	ft_calc_which_command(t_stack **a, int	index, int moves);
 void	ft_calc_which_command_b(t_stack **b, int	index, int moves);
-int		*ft_update_chunk(int *chunk, int chunk_size);
 void	ft_sort_b(t_stack **a, t_stack **b);
 void	ft_biggest_to_top(t_stack **b);
 void	print_array(int *arr, int size);
@@ -74,9 +73,9 @@ void	ft_smallest_to_top(t_stack **b);
 void	ft_mid_to_top(t_stack **a, t_stack **b);
 void	ft_biggest_to_top(t_stack **b);
 void	ft_index_to_top(t_stack **a, int index);
-int		*ft_update_chunk_2(int *chunk, int chunk_size);
-int		ft_choose(t_stack **a, t_stack **b, int *chunk_2);
-int		ft_choose_bottom(t_stack **a, t_stack **b, int *chunk_2);
+int		*ft_make_chunk_2(t_stack **b, int *chunk,int chunk_size);
+int		ft_choose(t_stack **a, t_stack **b, int *chunk_2, int chunk_size);
+int		ft_choose_bottom(t_stack **a, t_stack **b, int *chunk_2, int chunk_size);
 int		ft_find_less_moves(int *options, int size_options);
 int		*ft_get_options(t_stack **a, t_stack **b, int size_options);
 int		*ft_get_options_bottom(t_stack **a, t_stack **b, int size_options);

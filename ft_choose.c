@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:53:52 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/05 16:20:31 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/08 13:35:54 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@ int	ft_check_stack(t_stack **b, int *chunk_2, int size_options)
 	return (count);
 }
 
-int	ft_choose(t_stack **a, t_stack **b, int *chunk_2)
+int	ft_choose(t_stack **a, t_stack **b, int *chunk_2, int chunk_size)
 {
 	int	*options;
 	int	less_moves;
 	int	size_options;
 
-	size_options = 50;
+	size_options = chunk_size;
 	if (ft_lstsize(*b) < size_options)
 		size_options = ft_lstsize(*b);
 	size_options = ft_check_stack(b, chunk_2, size_options);
