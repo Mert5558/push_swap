@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:47:30 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/09 16:33:53 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/09 17:42:00 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int	*ft_make_chunk_2(t_stack **b, int chunk_size)
 	
 	current = *b;
 	i = 0;
-	if (chunk_size == 0)
+	if (*b == NULL || b == NULL || chunk_size == 0)
 		return (NULL);
 	if (ft_lstsize(*b) < chunk_size)
 		chunk_size = ft_lstsize(*b);
