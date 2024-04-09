@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 13:43:36 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/05 15:54:10 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/09 13:27:52 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_finished_top(t_stack **b, int *chunk_2)
 	int		i;
 
 	current = *b;
-	middle = 10;
+	middle = 50;
 	i = 0;
 	if (ft_lstsize(*b) <= middle)
 		middle = ft_lstsize(*b);
@@ -77,7 +77,7 @@ int	ft_finished_bottom(t_stack **b, int *chunk_2)
 	int		i;
 
 	current = ft_lstlast(*b);
-	middle = 10;
+	middle = 50;
 	i = 0;
 	if (ft_lstsize(*b) <= middle)
 		middle = ft_lstsize(*b);

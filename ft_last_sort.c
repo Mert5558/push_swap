@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 13:22:39 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/08 16:09:41 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/09 16:31:20 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	ft_last_sort(t_stack **a, t_stack **b)
 	int	*chunk_2 = NULL;
 	int	chunk_2_size;
 
-	chunk_2_size = 10;
-	chunk_2 = ft_make_chunk_2(b, chunk_2, chunk_2_size);
-	print_array(chunk_2, chunk_2_size);
+	chunk_2_size = 50;
+	chunk_2 = ft_make_chunk_2(b, chunk_2_size);
+	//print_array(chunk_2, chunk_2_size);
 	ft_pa(a, b, 0);
 	ft_pa(a, b, 0);
 	while (*b != NULL)
@@ -32,10 +32,10 @@ void	ft_last_sort(t_stack **a, t_stack **b)
 				ft_choose_bottom(a, b, chunk_2, chunk_2_size);
 			ft_sort_a(a, b);
 		}
-		chunk_2 = ft_make_chunk_2(b, chunk_2, chunk_2_size);
-		print_array(chunk_2, chunk_2_size);
+		chunk_2 = ft_make_chunk_2(b, chunk_2_size);
+		//print_array(chunk_2, chunk_2_size);
 	}
 	free(chunk_2);
 	ft_smallest_to_top(a);
 }
-// 84 41 22 35 88 29 3 62 6 81 48 63 99 97 64 36 38 52 74 39 20 49 89 93 17 32 15 94 7 58 65 80 78 75 27 8 19 9 85 67 53 14 33 68 37 5 57 56 21 43 44 77 28 54 86 95 0 26 98 11 40 18 71 55 50 96 2 76 24 92 46 13 59 69 10 47 25 66 16 30 42 82 31 87 34 61 1 51 45 73 83 72 90 79 12 4 23 91 60 70 
+// 96 25 88 93 90 10 73 43 18 3 92 13 98 33 29 15 2 70 49 71 16 62 42 77 67 4 69 6 37 35 74 86 51 99 38 58 81 27 47 22 84 45 5 54 8 64 34 1 19 94 85 59 11 95 78 80 36 83 46 89 30 41 56 14 7 75 17 76 21 39 48 24 44 40 50 91 20 31 55 61 72 66 82 12 97 26 79 52 28 23 53 32 65 68 57 0 87 60 63 9 

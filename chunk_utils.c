@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:47:30 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/08 16:13:38 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/09 16:33:53 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,11 @@ int ft_next_smallest_value(t_stack **b, int value)
         }
         current = current->next;
     }
-    return next_smallest_value;
+    return (next_smallest_value);
 }
 
 
-int	*ft_make_chunk_2(t_stack **b, int *chunk,int chunk_size)
+int	*ft_make_chunk_2(t_stack **b, int chunk_size)
 {
 	t_stack	*current;
 	int 	*chunk_2;
@@ -107,23 +107,19 @@ int	*ft_make_chunk_2(t_stack **b, int *chunk,int chunk_size)
 	
 	current = *b;
 	i = 0;
-	free(chunk);
+	if (chunk_size == 0)
+		return (NULL);
 	if (ft_lstsize(*b) < chunk_size)
 		chunk_size = ft_lstsize(*b);
-	
 	chunk_2 = malloc(chunk_size * sizeof(int));
 	if (chunk_2 == NULL)
 		return (NULL);
 	
 	value = ft_biggest_value(b);
-	chunk_2[i] = value;
-	i++;
-	
 	while (i < chunk_size && current != NULL)
 	{
-		value = ft_next_smallest_value(b, value);
-		printf("value: %d\n", value);
 		chunk_2[i] = value;
+		value = ft_next_smallest_value(b, value);
 		i++;
 		current = current->next;
 	}
