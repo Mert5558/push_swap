@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:07:26 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/05 16:45:11 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/10 15:39:48 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_find_biggest(t_stack **stack)
 {
 	int		max_index;
-	int		biggest_value;
+	long	biggest_value;
 	int		index;
 	t_stack	*current;
 
@@ -69,13 +69,13 @@ int	ft_find_mid(t_stack **a, t_stack **b)
 	int		index;
 	t_stack	*top_b;
 	t_stack	*current;
-	int		nearest_big;
+	long	nearest_big;
 	int		nearest_index;
 
 	index = 0;
 	top_b = *b;
 	current = *a;
-	nearest_big = INT_MAX;
+	nearest_big = LONG_MAX;
 	nearest_index = -1;
 	while (current != NULL)
 	{

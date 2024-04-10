@@ -6,38 +6,42 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 12:19:43 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/21 11:48:00 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/10 14:41:01 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_if_smallest(t_stack **b, t_stack **a)
+int	ft_check_if_smallest(t_stack **a, t_stack **b)
 {
-	t_stack	*current = *b;
-	t_stack	*top_a = *a;
+	t_stack	*current = *a;
+	t_stack	*top_b = *b;
 
 	while (current != NULL)
 	{
-		if (top_a->num >= current->num)
+		if (current->num == INT_MIN)
+			return (1);
+		if (top_b->num >= current->num)
 			return (1);
 		current = current->next;
 	}
 	return (0);
 }
 
-int ft_check_if_biggest(t_stack **b, t_stack **a)
+int ft_check_if_biggest(t_stack **a, t_stack **b)
 {
-    t_stack *current = *b;
-    t_stack *top_a = *a;
+    t_stack *current = *a;
+    t_stack *top_b = *b;
 
     while (current != NULL)
     {
-        if (top_a->num <= current->num)
+        if (current->num == INT_MAX)
+			return (1);
+		if (top_b->num <= current->num)
             return (1);
         current = current->next;
     }
-    	return (0);
+    return (0);
 }
 
 void	ft_sort_b(t_stack **a, t_stack **b)

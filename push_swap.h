@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 11:49:06 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/09 13:11:46 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/10 14:15:51 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ void	ft_biggest_to_top(t_stack **b);
 void	print_array(int *arr, int size);
 void	ft_sort_a(t_stack **a, t_stack **b);
 int		*ft_create_chunk(t_stack **b, int chunk_size);
-int		ft_check_if_smallest(t_stack **b, t_stack **a);
-int		ft_check_if_biggest(t_stack **b, t_stack **a);
+int		ft_check_if_smallest(t_stack **a, t_stack **b);
+int		ft_check_if_biggest(t_stack **a, t_stack **b);
 void	ft_smallest_to_top(t_stack **b);
 void	ft_mid_to_top(t_stack **a, t_stack **b);
 void	ft_biggest_to_top(t_stack **b);
