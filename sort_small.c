@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 13:30:08 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/10 12:27:40 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/11 16:32:19 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,3 @@ void	ft_sort_small(t_stack **a, t_stack **b)
 	else if (ft_lstsize(*a) == 5)
 		ft_sort_5(a, b);
 }
-
-// 4 2 1 5 3 

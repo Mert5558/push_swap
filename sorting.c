@@ -6,22 +6,11 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:27:59 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/09 13:41:59 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/11 16:16:14 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_is_in_stack(t_stack *stack, int num)
-{
-	while (stack != NULL)
-	{
-		if (stack->num == num)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
-}
 
 void	ft_sort(t_stack **a)
 {

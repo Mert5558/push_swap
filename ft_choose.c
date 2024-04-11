@@ -6,22 +6,11 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 10:53:52 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/08 13:35:54 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/11 17:17:24 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void print_array(int *array, int size) {
-    printf("[");
-    for (int i = 0; i < size; i++) {
-        printf("%d", array[i]);
-        if (i < size - 1) {
-            printf(", ");
-        }
-    }
-    printf("]\n");
-}
 
 int	*ft_get_options(t_stack **a, t_stack **b, int size_options)
 {

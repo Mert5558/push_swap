@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 16:16:56 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/05 15:57:28 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/11 17:23:20 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_mid_to_top_moves(t_stack **a, t_stack *value)
 	return (moves);
 }
 
-int	ft_check_if_smallest2(t_stack **a, t_stack *value)
+int	ft_check_if_sml2(t_stack **a, t_stack *value)
 {
 	t_stack	*current;
 
@@ -56,7 +56,7 @@ int	ft_check_if_smallest2(t_stack **a, t_stack *value)
 	return (0);
 }
 
-int	ft_check_if_biggest2(t_stack **a, t_stack *value)
+int	ft_check_if_big2(t_stack **a, t_stack *value)
 {
 	t_stack	*current;
 

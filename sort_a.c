@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:48:23 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/10 15:41:06 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/11 16:44:59 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	ft_sort_a(t_stack **a, t_stack **b)
 {
-	if (ft_check_if_biggest(a, b) == 0)
+	if (ft_check_if_big(a, b) == 0)
 	{
 		ft_smallest_to_top(a);
 		ft_pa(a, b, 0);
 	}
-	else if (ft_check_if_smallest(a, b) == 0)
+	else if (ft_check_if_sml(a, b) == 0)
 	{
 		ft_smallest_to_top(a);
 		ft_pa(a, b, 0);
 	}
-	else if ((ft_check_if_smallest(a, b) == 1) && (ft_check_if_biggest(a, b) == 1))
+	else if ((ft_check_if_sml(a, b) == 1) && (ft_check_if_big(a, b) == 1))
 	{
 		ft_mid_to_top(a, b);
 		ft_pa(a, b, 0);

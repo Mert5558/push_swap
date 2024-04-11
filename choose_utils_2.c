@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 13:43:36 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/09 13:27:52 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/11 17:17:55 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ int	ft_moves_options(t_stack **a, t_stack *value)
 	int	moves;
 
 	moves = 0;
-	if (ft_check_if_smallest2(a, value) == 0)
+	if (ft_check_if_sml2(a, value) == 0)
 	{
 		moves = ft_smallest_to_top_moves(a);
 		return (moves);
 	}
-	else if (ft_check_if_biggest2(a, value) == 0)
+	else if (ft_check_if_big2(a, value) == 0)
 	{
 		moves = ft_smallest_to_top_moves(a);
 		return (moves);
 	}
-	else if (ft_check_if_smallest2(a, value) == 1 && ft_check_if_biggest2(a, value) == 1)
+	else if (ft_check_if_sml2(a, value) == 1 && ft_check_if_big2(a, value) == 1)
 	{
 		moves = ft_mid_to_top_moves(a, value);
 		return (moves);
