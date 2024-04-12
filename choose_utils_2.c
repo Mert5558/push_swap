@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 13:43:36 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/11 17:17:55 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/12 16:35:36 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	ft_is_chunk_finished(t_stack **b, int *chunk_2)
 {
 	t_stack	*current;
 
+	if (chunk_2 == NULL)
+		return (1);
 	current = *b;
 	while (current != NULL)
 	{
