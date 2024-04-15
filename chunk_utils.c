@@ -6,7 +6,7 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:47:30 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/12 17:24:00 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/15 11:29:42 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,10 @@ int	*ft_make_chunk_2(t_stack **b, int chunk_size)
 int	ft_is_in_chunk(int *chunk_2, t_stack *current)
 {
 	int	i;
-	int	chunk_2_size = 50;
+	int	chunk_2_size;
 
 	i = 0;
+	chunk_2_size = 50;
 	while (i < chunk_2_size)
 	{
 		if (chunk_2[i] == current->num)

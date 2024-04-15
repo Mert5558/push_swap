@@ -6,22 +6,11 @@
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 13:22:39 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/12 17:12:11 by merdal           ###   ########.fr       */
+/*   Updated: 2024/04/15 11:28:54 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void print_array(int *array, int size) {
-    printf("[");
-    for (int i = 0; i < size; i++) {
-        printf("%d", array[i]);
-        if (i < size - 1) {
-            printf(", ");
-        }
-    }
-    printf("]\n");
-}
 
 void	ft_last_sort(t_stack **a, t_stack **b)
 {
