@@ -9,7 +9,7 @@ The goal is to sort a stack of integers using a limited set of operations and th
 
 Visualization of the **Two-Phase Chunk Sort algorithm** sorting **500 randomly generated numbers**.
 
-<video src="demo/push_swap500.webm" controls width="800"></video>
+<video src="images/push_swap500.webm" controls width="800"></video>
 
 ---
 
