@@ -82,8 +82,8 @@ int	*ft_make_chunk_2(t_stack **b, int chunk_size)
 	i = 0;
 	if (*b == NULL || b == NULL || chunk_size == 0)
 		return (NULL);
-	if (ft_lstsize(*b) < chunk_size)
-		chunk_size = ft_lstsize(*b);
+	if (ft_stack_size(*b) < chunk_size)
+		chunk_size = ft_stack_size(*b);
 	chunk_2 = malloc(chunk_size * sizeof(int));
 	if (chunk_2 == NULL)
 		return (NULL);

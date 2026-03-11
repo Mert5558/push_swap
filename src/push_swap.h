@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include "libft/libft.h"
+# include <libft.h>
 
 typedef struct s_stack
 {
@@ -31,8 +31,8 @@ void	ft_error(void);
 void	ft_add_nodes(t_stack **stack, int content);
 t_stack	*ft_process_normal(int argc, char **argv);
 t_stack	*ft_process_quotation(char **argv);
-t_stack	*ft_lstlast(t_stack *lst);
-int		ft_lstsize(t_stack *lst);
+t_stack	*ft_stack_last(t_stack *lst);
+int		ft_stack_size(t_stack *lst);
 int		ft_checkfordup(t_stack *a);
 void	ft_free(t_stack **lst);
 int		ft_checkifsorted(t_stack *stack_a);

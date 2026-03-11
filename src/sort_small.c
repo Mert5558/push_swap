@@ -56,12 +56,12 @@ void	ft_sort_5(t_stack **a, t_stack **b)
 
 void	ft_sort_small(t_stack **a, t_stack **b)
 {
-	if (ft_lstsize(*a) == 2)
-		ft_sa(a, 0);
-	else if (ft_lstsize(*a) == 3)
+	if (ft_stack_size(*a) == 2)
+		ft_sa(a, 1);
+	else if (ft_stack_size(*a) == 3)
 		ft_sort_3(a);
-	else if (ft_lstsize(*a) == 4)
+	else if (ft_stack_size(*a) == 4)
 		ft_sort_4(a, b);
-	else if (ft_lstsize(*a) == 5)
+	else if (ft_stack_size(*a) == 5)
 		ft_sort_5(a, b);
 }

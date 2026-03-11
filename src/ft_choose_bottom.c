@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_choose.c                                        :+:      :+:    :+:   */
+/*   ft_choose_bottom.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 10:53:52 by merdal            #+#    #+#             */
-/*   Updated: 2024/04/12 16:11:55 by merdal           ###   ########.fr       */
+/*   Created: 2024/03/22 16:16:14 by merdal            #+#    #+#             */
+/*   Updated: 2024/04/12 16:11:45 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*ft_get_options(t_stack **a, t_stack **b, int size_options)
+int	*ft_get_options_bottom(t_stack **a, t_stack **b, int size_options)
 {
 	t_stack	*current;
 	int		*options;
 	int		i;
 
-	current = *b;
+	current = ft_stack_last(*b);
 	i = 0;
 	options = (int *)malloc(sizeof(int) * size_options);
 	if (!options)
 		return (NULL);
 	while (i < size_options)
 	{
-		options[i] = ft_moves_options(a, current) + i;
+		options[i] = ft_moves_options(a, current) + i + 1;
 		i++;
-		current = current->next;
+		current = current->prev;
 	}
 	return (options);
 }
 
-int	ft_check_stack(t_stack **b, int *chunk_2, int size_options)
+int	ft_check_stack_2(t_stack **b, int *chunk_2, int size_options)
 {
 	t_stack	*current;
 	int		count;
 	int		i;
 
-	current = *b;
-	i = 0;
+	current = ft_stack_last(*b);
 	count = 0;
+	i = 0;
 	while (i < size_options)
 	{
 		if (ft_is_in_chunk(chunk_2, current) == 1)
@@ -49,26 +49,28 @@ int	ft_check_stack(t_stack **b, int *chunk_2, int size_options)
 		}
 		else if (ft_is_in_chunk(chunk_2, current) == 0)
 			break ;
-		current = current->next;
+		current = current->prev;
 		i++;
 	}
 	return (count);
 }
 
-int	ft_choose(t_stack **a, t_stack **b, int *chunk_2, int chunk_size)
+int	ft_choose_bot(t_stack **a, t_stack **b, int *chunk_2, int chunk_size)
 {
 	int	*options;
 	int	less_moves;
+	int	temp;
 	int	size_options;
 
 	size_options = chunk_size;
-	if (ft_lstsize(*b) < size_options)
-		size_options = ft_lstsize(*b);
-	size_options = ft_check_stack(b, chunk_2, size_options);
-	options = ft_get_options(a, b, size_options);
+	if (ft_stack_size(*b) < size_options)
+		size_options = ft_stack_size(*b);
+	size_options = ft_check_stack_2(b, chunk_2, size_options);
+	options = ft_get_options_bottom(a, b, size_options);
 	if (!options)
 		ft_error();
-	less_moves = ft_find_less_moves(options, size_options);
+	temp = ft_find_less_moves(options, size_options);
+	less_moves = ft_stack_size(*b) - temp - 1;
 	ft_index_to_top(b, less_moves);
 	free(options);
 	return (less_moves);

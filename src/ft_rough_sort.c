@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_utils.c                                        :+:      :+:    :+:   */
+/*   ft_rough_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 16:46:29 by merdal            #+#    #+#             */
-/*   Updated: 2024/03/14 14:41:06 by merdal           ###   ########.fr       */
+/*   Created: 2024/04/01 13:18:39 by merdal            #+#    #+#             */
+/*   Updated: 2024/04/12 17:13:28 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_lstlast(t_stack *lst)
+void	ft_rough_sort(t_stack **a, t_stack **b)
 {
-	while (lst)
-	{
-		if (!lst->next)
-			return (lst);
-		lst = lst->next;
-	}
-	return (lst);
-}
+	int	*chunk;
+	int	chunk_size;
+	int	i;
 
-int	ft_lstsize(t_stack *lst)
-{
-	int	size;
-
-	size = 0;
-	if (!lst)
-		return (0);
-	while (lst != NULL)
+	chunk_size = 50;
+	chunk = ft_make_chunk(a, chunk_size);
+	i = 0;
+	while (*a != NULL)
 	{
-		lst = lst->next;
-		size++;
+		while (i < chunk_size && *a != NULL)
+		{
+			ft_scan_move(a, chunk, chunk_size);
+			ft_pb(b, a, 0);
+			i++;
+		}
+		if (ft_stack_size(*a) < chunk_size)
+			chunk_size = ft_stack_size(*a);
+		chunk = ft_make_chunk(a, chunk_size);
+		i = 0;
 	}
-	return (size);
+	free(chunk);
 }

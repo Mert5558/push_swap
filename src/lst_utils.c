@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   lst_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/19 14:40:41 by merdal            #+#    #+#             */
-/*   Updated: 2024/02/19 14:40:43 by merdal           ###   ########.fr       */
+/*   Created: 2024/02/27 16:46:29 by merdal            #+#    #+#             */
+/*   Updated: 2024/03/14 14:41:06 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_stack	*ft_stack_last(t_stack *lst)
 {
-	t_list	*current_list;
-
-	if (!new)
-		return ;
-	if (*lst == NULL)
+	while (lst)
 	{
-		*lst = new;
-		return ;
+		if (!lst->next)
+			return (lst);
+		lst = lst->next;
 	}
-	current_list = *lst;
-	while (current_list->next != NULL)
-		current_list = current_list->next;
-	current_list->next = new;
+	return (lst);
+}
+
+int	ft_stack_size(t_stack *lst)
+{
+	int	size;
+
+	size = 0;
+	if (!lst)
+		return (0);
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
 }

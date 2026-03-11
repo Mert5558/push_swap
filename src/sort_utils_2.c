@@ -17,7 +17,7 @@ int	ft_calc_moves(t_stack **a, int index)
 	int	moves;
 
 	moves = 0;
-	if (index <= ft_lstsize(*a) / 2)
+	if (index <= ft_stack_size(*a) / 2)
 	{
 		while (index != 0)
 		{
@@ -27,7 +27,7 @@ int	ft_calc_moves(t_stack **a, int index)
 	}
 	else
 	{
-		while (index < ft_lstsize(*a))
+		while (index < ft_stack_size(*a))
 		{
 			index++;
 			moves++;
@@ -41,7 +41,7 @@ void	ft_calc_which_command(t_stack **a, int index, int moves)
 	int	i;
 
 	i = 0;
-	if (index <= ft_lstsize(*a) / 2)
+	if (index <= ft_stack_size(*a) / 2)
 	{
 		while (i < moves)
 		{
@@ -64,7 +64,7 @@ void	ft_calc_which_command_b(t_stack **b, int index, int moves)
 	int	i;
 
 	i = 0;
-	if (index < ft_lstsize(*b) / 2)
+	if (index < ft_stack_size(*b) / 2)
 	{
 		while (i < moves)
 		{

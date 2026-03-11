@@ -37,7 +37,7 @@ void	ft_add_to_stack(t_stack **a, t_stack *new_node)
 	}
 	else
 	{
-		last_node = ft_lstlast(*a);
+		last_node = ft_stack_last(*a);
 		last_node->next = new_node;
 		new_node->prev = last_node;
 	}

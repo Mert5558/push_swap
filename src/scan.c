@@ -55,7 +55,7 @@ int	ft_scan_bottom(t_stack **a, int *chunk, int chunk_size)
 	t_stack	*current;
 
 	index_chunk = 0;
-	index_stack = ft_lstsize(*a) - 1;
+	index_stack = ft_stack_size(*a) - 1;
 	current = ft_get_last_stack(a);
 	while (current != NULL)
 	{

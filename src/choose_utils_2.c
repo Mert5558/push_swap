@@ -60,8 +60,8 @@ int	ft_finished_top(t_stack **b, int *chunk_2)
 	current = *b;
 	middle = 50;
 	i = 0;
-	if (ft_lstsize(*b) <= middle)
-		middle = ft_lstsize(*b);
+	if (ft_stack_size(*b) <= middle)
+		middle = ft_stack_size(*b);
 	while (i < middle)
 	{
 		if (ft_is_in_chunk(chunk_2, current) == 1)
@@ -78,11 +78,11 @@ int	ft_finished_bottom(t_stack **b, int *chunk_2)
 	int		middle;
 	int		i;
 
-	current = ft_lstlast(*b);
+	current = ft_stack_last(*b);
 	middle = 50;
 	i = 0;
-	if (ft_lstsize(*b) <= middle)
-		middle = ft_lstsize(*b);
+	if (ft_stack_size(*b) <= middle)
+		middle = ft_stack_size(*b);
 	while (i < middle)
 	{
 		if (ft_is_in_chunk(chunk_2, current) == 1)

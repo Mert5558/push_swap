@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: merdal <merdal@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 15:34:41 by merdal            #+#    #+#             */
-/*   Updated: 2023/11/08 12:15:46 by merdal           ###   ########.fr       */
+/*   Created: 2024/02/26 12:27:59 by merdal            #+#    #+#             */
+/*   Updated: 2024/04/11 16:16:14 by merdal           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_striteri(char *s, void (*f) (unsigned int, char*))
+void	ft_sort(t_stack **a)
 {
-	size_t	i;
+	t_stack	*b;
 
-	if (s == NULL)
-		return ;
-	i = 0;
-	while (s[i])
+	b = NULL;
+	if (ft_stack_size(*a) <= 5)
+		ft_sort_small(a, &b);
+	else
 	{
-		f(i, &s[i]);
-		i++;
+		ft_rough_sort(a, &b);
+		ft_last_sort(a, &b);
 	}
 }
