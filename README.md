@@ -7,9 +7,10 @@ The goal is to sort a stack of integers using a limited set of operations and th
 
 ## 🎥 Algorithm Demonstration
 
-Visualization of the **Two-Phase Chunk Sort algorithm** sorting **500 randomly generated numbers**.
+[push_swap_500.webm](https://github.com/user-attachments/assets/8ad262dc-81d2-43fc-bf10-ffb4821328db)
 
-[Bildschirmaufzeichnung vom 2026-03-11 17-14-58.webm](https://github.com/user-attachments/assets/84d85988-3750-4ea5-8cd9-a941fd38d490)
+**500 Random numbers = 5866 operations**
+**100 Random numbers = 693 operations**
 
 ---
 
