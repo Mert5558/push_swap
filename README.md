@@ -5,6 +5,14 @@ The goal is to sort a stack of integers using a limited set of operations and th
 
 ---
 
+## 🎥 Algorithm Demonstration
+
+Visualization of the **Two-Phase Chunk Sort algorithm** sorting **500 randomly generated numbers**.
+
+<video src="demo/push_swap500.webm" controls width="800"></video>
+
+---
+
 ## 📖 About the Project
 
 The program receives a list of integers as arguments and sorts them using two stacks:
